@@ -1,0 +1,3 @@
+<brush name="gfx/chakram_icons.png" version="17">
+    <sprite id="icon_chakram_01" offsetY="35" ic="FF374554" width="130" height="142" img="icons\icon_chakram_01.png" left="-48" right="-5" top="-20" bottom="-55" />
+</brush>

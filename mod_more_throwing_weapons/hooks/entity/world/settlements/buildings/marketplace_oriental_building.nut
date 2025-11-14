@@ -4,9 +4,14 @@
 	{
 		_list.extend([
 			{
-				R = 2,
+				R = 1,
 				P = 1.0,
-				S = "weapons/oriental/chakram"
+				S = "weapons/oriental/chakram_mainhand"
+			},
+			{
+				R = 1,
+				P = 1.0,
+				S = "weapons/oriental/chakram_offhand"
 			}
 		]);
 

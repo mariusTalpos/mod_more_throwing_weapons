@@ -1,4 +1,4 @@
-this.throw_chakram <- this.inherit("scripts/skills/skill", {
+this.throw_chakram_offhand <- this.inherit("scripts/skills/skill", {
 	m = {
 		AdditionalAccuracy = 0,
 		AdditionalHitChance = 0,
@@ -15,12 +15,12 @@ this.throw_chakram <- this.inherit("scripts/skills/skill", {
 	},
 	function create()
 	{
-		this.m.ID = "actives.throw_chakram";
-		this.m.Name = "Throw Chakram";
+		this.m.ID = "actives.throw_chakram_offhand";
+		this.m.Name = "Throw Chakram (Offhand)";
 		this.m.Description = "Hurl a chakram at a target. The circular blade can slice through enemies and cause bleeding wounds. Can not be used while engaged in melee.";
 		this.m.KilledString = "Sliced";
-		this.m.Icon = "skills/throw_chakram.png";
-		this.m.IconDisabled = "skills/throw_chakram_sw.png";
+		this.m.Icon = "skills/throw_chakram_offhand.png";
+		this.m.IconDisabled = "skills/throw_chakram_offhand_sw.png";
 		this.m.Overlay = "active_17";
 		this.m.SoundOnUse = [
 			"sounds/combat/throw_axe_01.wav",
@@ -136,11 +136,11 @@ this.throw_chakram <- this.inherit("scripts/skills/skill", {
 
 	function getAmmo()
 	{
-		local item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		local item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
 
 		if (item == null)
 		{
-			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
+			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 			if (item.getAmmo() == 0)
 			{
 				return 0;
@@ -149,7 +149,7 @@ this.throw_chakram <- this.inherit("scripts/skills/skill", {
 
 		if (item.getAmmo() == 0)
 		{
-			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
+			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 			if (item.getAmmo() == 0)
 			{
 				return 0;
@@ -161,7 +161,7 @@ this.throw_chakram <- this.inherit("scripts/skills/skill", {
 
 	function consumeAmmo()
 	{
-		local item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		local item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
 
 		if (item.getAmmo() > 0)
 		{
@@ -169,7 +169,7 @@ this.throw_chakram <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
-			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
+			item = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 			item.consumeAmmo();
 		}
 	}
